@@ -1,4 +1,6 @@
-type TagProps = {
+import * as S from './styles';
+
+export type TagProps = {
   children: React.ReactNode;
   size?: 'xs' | 'sm' | 'md' | 'lg';
 };
@@ -6,9 +8,7 @@ type TagProps = {
 export const Tag = ({ children, size = 'sm' }: TagProps) => {
   return (
     <>
-      <div>
-        <div size={size} className="">{children}</div>
-      </div>
+      <S.Tag size={size}>{children}</S.Tag>
     </>
   );
 };
