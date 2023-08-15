@@ -3,6 +3,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { headerConfig } from '../config';
 import { Layout } from '@/components/Layout';
+import { MainNav } from '@/components/MainNav';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -17,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-primary text-gray-100">
-        <Header items={headerConfig} />
+        <Header>
+          <MainNav items={headerConfig} />
+        </Header>
 
         <Layout>
           <div className="pt-20">{children}</div>
