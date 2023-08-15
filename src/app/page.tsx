@@ -1,17 +1,16 @@
 import { PostCard } from '@/components/PostCard';
 import { allPosts } from '../../.contentlayer/generated';
 import { Grid } from '@/components/Grid';
+import { Profile } from '@/components/Profile';
+import { siteConfig } from '@/config';
 
 export default function Home() {
   const posts = allPosts;
 
   return (
     <main className="">
-      <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci in
-        asperiores iste ullam similique voluptates excepturi incidunt quis esse?
-        Assumenda, mollitia. Nostrum illum aliquid omnis quisquam ea magnam
-        sapiente voluptates?
+      <div className="my-10">
+        <Profile items={siteConfig} />
       </div>
 
       <div>
