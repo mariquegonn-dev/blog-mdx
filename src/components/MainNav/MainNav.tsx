@@ -1,3 +1,5 @@
+'use client';
+
 import { HeaderNav } from '@/types';
 import * as S from './styles';
 import Link from 'next/link';
