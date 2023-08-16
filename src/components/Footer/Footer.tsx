@@ -3,6 +3,8 @@ import { Layout } from '../Layout';
 import { Logo } from '../Logo';
 import { HeaderNav } from '@/types';
 import Link from 'next/link';
+import * as S from './styles';
+import { List, ListItem } from '../List';
 
 type FooterProps = {
   items: HeaderNav;
@@ -12,35 +14,32 @@ export const Footer = ({ items }: FooterProps) => {
   const fullYear = new Date().getFullYear();
   return (
     <Layout>
-      <footer className="flex flex-col border-t border-slate-600 pb-4 pt-6">
-        <div className="flex w-full justify-between pb-10">
-          <div
-            role="contentinfo"
-            className="flex max-w-[8rem] flex-col gap-6 sm:max-w-xs"
-          >
+      <S.Container>
+        <S.Content>
+          <S.Section role="contentinfo" className="">
             <Logo />
-            <p>{siteConfig.title}</p>
-          </div>
+            <S.Title className="">{siteConfig.title}</S.Title>
+          </S.Section>
 
-          <div role="contentinfo">
-            <p>Redes</p>
-          </div>
+          <S.Section role="contentinfo">
+            <S.Title>Redes</S.Title>
+          </S.Section>
 
-          <div>
-            <p>Sitemap</p>
-            <ul>
+          <S.Section role="contentinfo">
+            <S.Title>Sitemap</S.Title>
+            <List className="flex-col">
               {items.mainNav.map((item) => (
-                <li key={item.href}>
+                <ListItem key={item.href}>
                   <Link href={item.href}>{item.title}</Link>
-                </li>
+                </ListItem>
               ))}
-            </ul>
-          </div>
-        </div>
-        <div>
-          <div>Alguns direitos reservados @ {fullYear}</div>
-        </div>
-      </footer>
+            </List>
+          </S.Section>
+        </S.Content>
+        <S.CopyrightContainer>
+          <S.Copyright>Alguns direitos reservados @ {fullYear}</S.Copyright>
+        </S.CopyrightContainer>
+      </S.Container>
     </Layout>
   );
 };
