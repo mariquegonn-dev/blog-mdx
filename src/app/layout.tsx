@@ -1,4 +1,5 @@
 import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
 import './globals.css';
 import type { Metadata } from 'next';
 import { headerConfig } from '../config';
@@ -25,6 +26,8 @@ export default function RootLayout({
         <Layout>
           <div className="pt-20">{children}</div>
         </Layout>
+
+        <Footer items={headerConfig}/>
       </body>
     </html>
   );
