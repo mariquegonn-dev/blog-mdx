@@ -7,10 +7,8 @@ type ListItemProps = LiHTMLAttributes<HTMLLIElement> & {
 
 export const ListItem = ({ children, ...rest }: ListItemProps) => {
   return (
-    <>
-      <S.Container {...rest} className="">
-        {children}
-      </S.Container>
-    </>
+    <S.Container {...rest} className="">
+      {children}
+    </S.Container>
   );
 };

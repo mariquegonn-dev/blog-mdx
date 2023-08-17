@@ -1,3 +1,9 @@
 'use client';
 
-export { X as CloseIcon, List as OpenIcon } from '@phosphor-icons/react';
+export {
+  X as CloseIcon,
+  List as OpenIcon,
+  YoutubeLogo as YoutubeIcon,
+  LinkedinLogo as LinkedinIcon,
+  GithubLogo as GithubIcon
+} from '@phosphor-icons/react';

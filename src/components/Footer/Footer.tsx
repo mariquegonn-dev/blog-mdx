@@ -5,6 +5,8 @@ import { HeaderNav } from '@/types';
 import Link from 'next/link';
 import * as S from './styles';
 import { List, ListItem } from '../List';
+import { SocialMedia } from '../SocialMedia';
+import { socialLinkConfig } from '@/config/socialLinks';
 
 type FooterProps = {
   items: HeaderNav;
@@ -23,6 +25,8 @@ export const Footer = ({ items }: FooterProps) => {
 
           <S.Section role="contentinfo">
             <S.Title>Redes</S.Title>
+
+            <SocialMedia items={socialLinkConfig} />
           </S.Section>
 
           <S.Section role="contentinfo">
