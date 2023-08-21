@@ -1,41 +1,51 @@
+import * as S from "./styles"
 import Image from 'next/image';
 import Link from 'next/link';
 import { Tag } from '../Tag';
+import { BlogPost } from '@/types';
+import { formatDate } from "@/functions";
 
-export const PostCard = () => {
+type PostCardProps = {
+  post: BlogPost;
+};
+
+export const PostCard = ({ post }: PostCardProps) => {
+  const {  frontmatter, readingTime, slug } = post;
+  const { title, description, date, image, tags } = frontmatter;
+
+  const formattedDate = formatDate(date);
+
   return (
     <>
-      <Link href="#">
-        <div className="relative h-80 w-full">
+      <Link className="hover:border-link w-full rounded-lg border-2 p-3 border-transparent transition-colors duration-300" 
+      href={slug}>
+        <S.ImageContainer>
           <Image
-            src="/assets/images/content.png"
+            src={image}
             alt="title"
             fill
             className="rounded-xl object-cover object-center"
             priority
           />
-        </div>
+        </S.ImageContainer>
 
-        <div className="pt-3">
-          <div className="mb-3 flex flex-wrap gap-2">
-            {['TS', 'React', 'JS'].map((tag) => (
+        <S.Content>
+          <S.TagsContainer>
+            {tags?.map((tag) => (
               <Tag key={tag}>{tag}</Tag>
             ))}
-          </div>
+          </S.TagsContainer>
 
-          <time className="text-gray-400">
-            15 de maio de 2023 • 3 minutos de leitura
-          </time>
+          <S.Time>
+            {formattedDate} • {readingTime} minutos de leitura
+          </S.Time>
 
-          <p className="mt-2 max-w-md text-ellipsis text-2xl font-medium text-gray-50">
-            O que é Dependency Injection e como aplicar no React.js?
-          </p>
+          <S.Title>
+            {title}
+          </S.Title>
 
-          <p className="mt-3 text-gray-400">
-            Vamos aprender à como aplicar esse conceito tão importante no
-            React.js
-          </p>
-        </div>
+          <S.Description>{description}</S.Description>
+        </S.Content>
       </Link>
     </>
   );
